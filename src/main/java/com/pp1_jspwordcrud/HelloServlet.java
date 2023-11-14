@@ -1,4 +1,4 @@
-package com.example.pp1_jspwordcrud;
+package com.pp1_jspwordcrud;
 
 import java.io.*;
 import javax.servlet.http.*;
