@@ -11,6 +11,14 @@
 <h1>Add New Post</h1>
 <form action="addpost.jsp" method="post">
 <table>
+<tr><td>Category:</td><td>
+    <input list="category" name="category">
+    <datalist id="category">
+        <option value="메모">
+        <option value="자기계발">
+        <option value="독서">
+        <option value="할 일">
+    </datalist></td></tr>
 <tr><td>Title:</td><td><input type="text" name="title"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>
 <tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>

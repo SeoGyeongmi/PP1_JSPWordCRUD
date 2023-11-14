@@ -19,6 +19,14 @@
 <form action="editpost.jsp" method="post">
 <input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
 <table>
+	<tr><td>Category:</td><td>
+		<input list="category" name="category">
+		<datalist id="category">
+			<option value="메모">
+			<option value="자기계발">
+			<option value="독서">
+			<option value="할 일">
+		</datalist></td></tr>
 <tr><td>Title:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>
 <tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td></tr>
