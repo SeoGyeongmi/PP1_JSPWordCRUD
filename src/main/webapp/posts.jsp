@@ -33,6 +33,9 @@
 		var a = confirm("정말로 삭제하겠습니까?");
 		if(a) location.href='deletepost.jsp?id=' + id;
 	}
+	function redirectToViewPage(id) {
+		location.href = 'view.jsp?id=' + id;
+	}
 </script>
 </head>
 <body>
@@ -55,7 +58,7 @@
 	<th>Delete</th>
 </tr>
 <c:forEach items="${list}" var="u">
-	<tr>
+	<tr onclick="redirectToViewPage('${u.getSeq()}')">
 		<td>${u.getSeq()}</td>
 		<td>${u.getCategory()}</td>
 		<td>${u.getTitle()}</td>

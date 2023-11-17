@@ -9,7 +9,7 @@
 <body>
 
 <h1>Add New Post</h1>
-<form action="addpost.jsp" method="post">
+<form action="addpost.jsp" method="post" >
 <table>
 <tr><td>Category:</td><td>
     <input list="category" name="category">

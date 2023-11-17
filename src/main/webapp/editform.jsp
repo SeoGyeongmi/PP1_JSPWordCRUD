@@ -6,21 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Form</title>
+
 </head>
 <body>
 
 <%
 	BoardDAO boardDAO = new BoardDAO();
-	String id=request.getParameter("id");	
-	BoardVO u=boardDAO.getBoard(Integer.parseInt(id));
+	String id=request.getParameter("id");
+	System.out.println("editform.jsp - 현재 불러온 글의 id는 " + id + "입니다.");
+	BoardVO u = boardDAO.getBoard(Integer.parseInt(id));
 %>
 
+<script>
+	function updateEditdate(){
+
+	}
+</script>
 <h1>Edit Form</h1>
 <form action="editpost.jsp" method="post">
 <input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
 <table>
 	<tr><td>Category:</td><td>
-		<input list="category" name="category">
+		<input list="category" name="category" value="<%= u.getCategory()%>">
 		<datalist id="category">
 			<option value="메모">
 			<option value="자기계발">
@@ -30,7 +37,7 @@
 <tr><td>Title:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>
 <tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td></tr>
-<tr><td colspan="2"><input type="submit" value="Edit Post"/>
+<tr><td colspan="2"><input type="submit" onclick="updateEditdate()" value="Edit Post"/>
 <input type="button" value="Cancel" onclick="history.back()"/></td></tr>
 </table>
 </form>
