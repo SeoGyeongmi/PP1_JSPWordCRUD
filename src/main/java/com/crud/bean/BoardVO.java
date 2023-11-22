@@ -1,5 +1,6 @@
 package com.crud.bean;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BoardVO {
@@ -45,9 +46,7 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public Date getEditdate() {
-		return editdate;
-	}
+	public Date getEditdate() { return editdate; }
 	public void setEditdate(Date editdate) {
 		this.editdate = editdate;
 	}

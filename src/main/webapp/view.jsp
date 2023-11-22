@@ -23,7 +23,6 @@
 <h1>View Data</h1>
 
 
-
 <tr>
     <td>Category: <%= u.getCategory()%> <br><br></td>
     <td>Title: <%= u.getTitle()%> <br><br></td>
@@ -31,8 +30,6 @@
     <td>Content: <%= u.getContent()%> <br><br></td>
     <td>생성된 날짜: <%= u.getRegdate()%> <br></td>
     <td>최근 수정된 날짜: <%= u.getEditdate()%> <br></td>
-
-
 </tr>
 
 
@@ -41,7 +38,7 @@
 
 <%//System.out.println(${u.getSeq()});%>
 <a href="posts.jsp">목록</a>
-<a href="editform.jsp?id=${u.getSeq()}">Edit</a>
+<a href="editform.jsp?id=<%=id%>">Edit</a>
 <%--  ${u.getSeq()} 가 null 값
 --%>
 

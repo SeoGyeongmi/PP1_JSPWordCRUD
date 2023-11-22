@@ -32,7 +32,7 @@
 
 
 파일명 : <%=filename%> <br />
-<img src = "${PP1_JSPWordCRUD_war_exploded/fileform.jsp}/upload/<%=filename%>">
+<img src = "${pageContext.request.contextPath}/upload/<%=filename%>">
 file_ok.jsp
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.crud.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class BoardDAO {
 	ResultSet rs = null;
 
 	private final String BOARD_INSERT = "insert into BOARD (category, title, writer, content) values (?,?,?,?)";
-	private final String BOARD_UPDATE = "update BOARD set category=?, title=?, writer=?, content=? where seq=?";
+	private final String BOARD_UPDATE = "update BOARD set category=?, title=?, writer=?, content=?, editdate=? where seq=?";
 	private final String BOARD_DELETE = "delete from BOARD  where seq=?";
 	private final String BOARD_GET = "select * from BOARD  where seq=?";
 	private final String BOARD_LIST = "select * from BOARD order by seq desc";
@@ -59,10 +60,11 @@ public class BoardDAO {
 			stmt.setString(2, vo.getTitle());
 			stmt.setString(3, vo.getWriter());
 			stmt.setString(4, vo.getContent());
-			stmt.setInt(5, vo.getSeq());
-			
-			
-			System.out.println(vo.getCategory() + "-" + vo.getTitle() + "-" + vo.getWriter() + "-" + vo.getContent() + "-" + vo.getSeq());
+			stmt.setTimestamp(5, (Timestamp) vo.getEditdate());
+			stmt.setInt(6, vo.getSeq());
+
+//			System.out.println("Executed Query: ");
+//			System.out.println(vo.getCategory() + "-" + vo.getTitle() + "-" + vo.getWriter() + "-" + vo.getContent() + "-" + vo.getSeq());
 			stmt.executeUpdate();
 			return 1;
 			
@@ -87,7 +89,7 @@ public class BoardDAO {
 				one.setWriter(rs.getString("writer"));
 				one.setContent(rs.getString("content"));
 				one.setRegdate(rs.getDate("regdate"));
-//				one.setRegdate(rs.getDate("regdate"));
+				one.setEditdate(rs.getDate("editdate"));
 				one.setCnt(rs.getInt("cnt"));
 			}
 			rs.close();
@@ -118,6 +120,7 @@ public class BoardDAO {
 			}
 			rs.close();
 		} catch (Exception e) {
+			System.out.println("getBoardList()에서 예외발생!");
 			e.printStackTrace();
 		} 
 		return list;
